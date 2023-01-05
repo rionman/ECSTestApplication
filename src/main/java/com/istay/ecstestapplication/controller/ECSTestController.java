@@ -11,7 +11,7 @@ public class ECSTestController {
 
     @GetMapping("/main")
     public String getMain() {
-        return "main";
+        return "main call deploy";
     }
 
 
