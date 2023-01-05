@@ -15,6 +15,9 @@ public class ECSTestController {
     }
 
 
-
+    @GetMapping("/test")
+    public String getTestIndex() {
+        return "Test";
+    }
 
 }
