@@ -20,14 +20,10 @@ public class ECSTestController {
         return "Test";
     }
 
-    @GetMapping("/test/change")
-    public String getTestUpdate() {
-        return "test/change";
+    @GetMapping("/test/main")
+    public String getTestMain() {
+        return "test-2 success";
     }
 
-    @GetMapping("/change")
-    public String getChange() {
-        return "change";
-    }
 
 }
