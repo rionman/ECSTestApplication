@@ -25,4 +25,9 @@ public class ECSTestController {
         return "test/change";
     }
 
+    @GetMapping("/change")
+    public String getChange() {
+        return "change";
+    }
+
 }
