@@ -3,6 +3,7 @@ package com.istay.ecstestapplication.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,5 +26,10 @@ public class ECSTestController {
         return "test-2 success";
     }
 
+
+    @GetMapping("/test/main/{str}")
+    public String getStringTestPrint(@PathVariable String str) {
+        return "input Path : variable is " + str;
+    }
 
 }

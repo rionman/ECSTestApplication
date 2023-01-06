@@ -33,20 +33,22 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-#      - AWS_ACCOUNT_ID=255720667091
-#      - AWS_DEFAULT_REGION=ap-northeast-2
+      - AWS_ACCOUNT_ID=255720667091
+      - AWS_DEFAULT_REGION=ap-northeast-2
+      - ISTAY_PROJECT_NAME=istay/center
       - mvn clean package
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 255720667091.dkr.ecr.ap-northeast-2.amazonaws.com
-      - REPOSITORY_URI=255720667091.dkr.ecr.ap-northeast-2.amazonaws.com/istay/center
+      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$ISTAY_PROJECT_NAME
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t istay/center:latest .
-      - docker tag istay/center:latest 255720667091.dkr.ecr.ap-northeast-2.amazonaws.com/istay/center:latest
-      - docker push 255720667091.dkr.ecr.ap-northeast-2.amazonaws.com/istay/center:latest
+      - IMAGE_NAME=$ISTAY_PROJECT_NAME:$IMAGE_TAG
+      - docker build -t $IMAGE_NAME .
+      - docker tag $IMAGE_NAME $REPOSITORY_URI:$IMAGE_TAG
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
       - printf '[{"name":"istay-center","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
