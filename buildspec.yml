@@ -35,6 +35,7 @@ phases:
       - aws --version
 #      - AWS_ACCOUNT_ID=255720667091
 #      - AWS_DEFAULT_REGION=ap-northeast-2
+      - mvn clean package
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 255720667091.dkr.ecr.ap-northeast-2.amazonaws.com
       - REPOSITORY_URI=255720667091.dkr.ecr.ap-northeast-2.amazonaws.com/istay/center
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
