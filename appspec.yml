@@ -13,7 +13,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:ap-northeast-2:255720667091:task-definition/test-task" # Specify the ARN of your task definition (arn:aws:ecs:region:account-id:task-definition/task-definition-family-name:task-definition-revision-number)
+        TaskDefinition: "arn:aws:ecs:ap-northeast-2:255720667091:task-definition/test-task:latest" # Specify the ARN of your task definition (arn:aws:ecs:region:account-id:task-definition/task-definition-family-name:task-definition-revision-number)
         LoadBalancerInfo:
           ContainerName: "istay-center" # Specify the name of your Amazon ECS application's container
           ContainerPort: "8080" # Specify the port for your container where traffic reroutes
