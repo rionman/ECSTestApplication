@@ -20,4 +20,9 @@ public class ECSTestController {
         return "Test";
     }
 
+    @GetMapping("/test/test")
+    public String getTestUpdate() {
+        return "test/test";
+    }
+
 }
