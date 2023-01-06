@@ -46,6 +46,7 @@ phases:
       - echo Building the Docker image...
       - docker build -t istay/center:latest .
       - docker tag istay/center:latest 255720667091.dkr.ecr.ap-northeast-2.amazonaws.com/istay/center:latest
+      - docker push 255720667091.dkr.ecr.ap-northeast-2.amazonaws.com/istay/center:latest
   post_build:
     commands:
       - printf '[{"name":"istay-center","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
