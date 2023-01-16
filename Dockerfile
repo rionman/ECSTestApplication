@@ -4,6 +4,7 @@ EXPOSE 8080
 WORKDIR ECSTestApplication
 
 #RUN chmod 700 mvnw
+#Test
 
 CMD ["./mvnw", "clean", "package"]
 
