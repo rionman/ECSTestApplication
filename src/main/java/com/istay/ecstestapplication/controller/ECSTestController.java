@@ -23,7 +23,7 @@ public class ECSTestController {
 
     @GetMapping("/test/main")
     public String getTestMain() {
-        return "test-3 success";
+        return "test-3123 success";
     }
 
 }
