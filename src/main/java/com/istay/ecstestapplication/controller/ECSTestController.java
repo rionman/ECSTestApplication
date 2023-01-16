@@ -26,10 +26,4 @@ public class ECSTestController {
         return "test-3 success";
     }
 
-
-    @GetMapping("/test/main/{str}")
-    public String getStringTestPrint(@PathVariable String str) {
-        return "input Path : variable is " + str;
-    }
-
 }
