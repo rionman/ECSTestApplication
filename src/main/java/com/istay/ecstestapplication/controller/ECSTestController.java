@@ -3,7 +3,6 @@ package com.istay.ecstestapplication.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,7 +22,7 @@ public class ECSTestController {
 
     @GetMapping("/test/main")
     public String getTestMain() {
-        return "test-3123 success";
+        return "test-3dsds123 success";
     }
 
 }
