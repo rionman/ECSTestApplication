@@ -12,11 +12,11 @@ jobs:
         id: extract_version_name
       - name: Jira Release
         id: release
-        uses: PRNDcompany/jira-release@v1.2
+        uses: PRNDcompany/jira-release@v1.3
         with:
           domain: https://istay-test1.atlassian.net
           project: I20
-          version: BACK-${{ steps.extract_version_name.outputs.version }}
+          version: BACK-V${{ steps.extract_version_name.outputs.version }}
           auth-token: a2tpbUBpc3RheS5pbzppVU55ZUNwV1RXR2xuZWs1eXlodEJGMjc=
       - name: Print New Version
         run: |
